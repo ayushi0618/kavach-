@@ -1,0 +1,2 @@
+import PageTransition from '../../../components/animations/PageTransition';
+export default function DepartmentAnalyticsPage() { return <PageTransition><div className="p-8 text-center text-gray-500 font-bold">Department Analytics Details</div></PageTransition>; }

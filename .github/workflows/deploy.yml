@@ -1,0 +1,41 @@
+name: Smart Workshop CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Backend Dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Install Frontend Dependencies
+        working-directory: ./smart-workshop
+        run: npm ci
+
+      - name: Build Frontend
+        working-directory: ./smart-workshop
+        run: npm run build
+
+      # Add testing steps here (npm test)
+      
+  docker-build:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker Compose Stack
+        run: docker-compose build

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report - Smart workshop Asset & maintainance Management System</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; line-height: 1.6; margin: 0; padding: 0; background-color: #fff; }
+        .page { max-width: 800px; margin: 0 auto; padding: 60px; page-break-after: always; position: relative; min-height: 900px; }
+        .center-text { text-align: center; }
+        .bold { font-weight: bold; }
+        .title-large { font-size: 28px; font-weight: 800; color: #1a252f; margin-bottom: 10px; }
+        .title-medium { font-size: 22px; font-weight: 700; margin: 20px 0; color: #2c3e50; }
+        .title-small { font-size: 16px; margin-bottom: 5px; }
+        .logo-img { max-width: 250px; margin: 30px auto; display: block; }
+        
+        .submitted-grid { display: flex; justify-content: space-between; margin-top: 60px; text-align: left; }
+        .submitted-block p { margin: 5px 0; }
+        
+        hr { border: 0; border-top: 1px solid #bdc3c7; margin: 30px 0; }
+        h1 { border-bottom: 2px solid #34495e; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        h3 { color: #34495e; }
+        
+        .toc-list { list-style: none; padding-left: 0; }
+        .toc-list li { margin-bottom: 10px; font-size: 16px; }
+        p, li { font-size: 15px; color: #34495e; }
+        
+        .code-block { background-color: #f1f2f6; padding: 15px; border-left: 4px solid #34495e; font-family: monospace; font-size: 13px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <div class="page center-text">
+        <div class="title-medium" style="margin-top: 20px;">Vocational Training</div>
+        <div class="title-large">510 Army Base Workshop</div>
+        <div class="title-small">Corps of Electronics & Mechanical Engineers (EME)</div>
+        <div class="title-small">Ministry of Defence</div>
+        <div class="title-small">Government of India</div>
+        <div class="title-small">Meerut Cantt</div>
+        
+        <img src="new_logo.png" alt="EME Logo" class="logo-img">
+        
+        <div class="title-medium" style="margin-top: 40px; font-style: italic; color: #2980b9; font-size: 26px;">
+            Smart workshop Asset & maintainance Management System
+        </div>
+        
+        <hr>
+        
+        <div class="submitted-grid">
+            <div class="submitted-block">
+                <p class="bold">Submitted By:</p>
+                <p>1. IKRA</p>
+                <p>2. AYUSHI SINGH</p>
+                <p>3. SANIYA</p>
+            </div>
+            <div class="submitted-block" style="text-align: right;">
+                <p class="bold">Submitted To:</p>
+                <p>COL G.S. PHANI RAJ (WSG)</p>
+                <br>
+                <p class="bold">Guided By:</p>
+                <p>Mithlesh Sir</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acknowledgement -->
+    <div class="page">
+        <h1>Acknowledgement</h1>
+        <p>We have taken efforts in this project. However, it would not have been possible without the kind support and help of many individuals. We would like to extend our sincere thanks to all of them.</p>
+        <p>We are highly indebted to <strong>COL Phani Raj (OIC, WSG)</strong> and our guide <strong>Mithlesh Sir</strong> for their guidance and constant supervision as well as for providing necessary information regarding the project and also for their support in completing the project.</p>
+        <p>Our thanks and appreciations also go to our colleagues in developing the project and people who have willingly helped us with their abilities.</p>
+        <p>We extend our grateful thanks to 510 Army Base Workshop, Meerut Cantt for the support and cooperation.</p>
+        <br><br>
+        <p style="text-align: right; font-weight: bold;">Project Computer Science</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="page">
+        <h1>Content</h1>
+        <ol class="toc-list">
+            <li>Introduction to Army Base Workshops & EME</li>
+            <li>Quality Objectives (ISO 9001:2008 Standard)</li>
+            <li>Tatra Engine Platforms & Combat Engineering Assets</li>
+            <li>Architectural Pipeline & Decoupled Data Flow</li>
+            <li>Database Layer & Schema Abstractions</li>
+            <li>Application Modules & Developer Guide (Core Features)</li>
+            <li>Implementation & Deployment Guide</li>
+            <li>Future Scope & Edge Hardware Additions</li>
+            <li>Summary & Conclusion</li>
+        </ol>
+    </div>
+
+    <!-- Sections 1-3 -->
+    <div class="page">
+        <h2>1. Introduction to Army Base Workshops & EME</h2>
+        <p>Eight Army Base Workshop (ABWs) were established during the Second World War to carry out repairs and overhaul of Weapons, Vehicles and Equipment to keep The Indian Army operationally ready, towards these End, they also Undertake Manufacture of Spares. <strong>510 Army Base Workshop</strong> located at Meerut overhauls air defense and guided missiles systems.</p>
+        
+        <h2>2. Quality Objective (ISO 9001:2008)</h2>
+        <ul>
+            <li>To achieve competence in overhaul of Air Defense Weapon System and equipments.</li>
+            <li>To utilize available resources optimally and develop human resources by providing training.</li>
+            <li>To increase the productivity and efficiency in the organization by at least 3% to 5% every year.</li>
+        </ul>
+
+        <h2>3. Tatra Engine Platforms & Combat Engineering Assets</h2>
+        <p>Tatra all-terrain vehicles and Armored Dozers are heavily utilized combat engineering assets. Tracking their maintenance, RUL (Remaining Useful Life), and asset history is critical for operational readiness.</p>
+    </div>
+
+    <!-- Sections 4-5 -->
+    <div class="page">
+        <h2>4. Architectural Pipeline & Decoupled Data Flow</h2>
+        <p>To transition from manual tracking to an enterprise-grade framework, a fully decoupled <strong>MERN-stack-inspired pipeline (React + Node + Drizzle ORM + SQLite)</strong> was deployed.</p>
+        <ul>
+            <li><strong>Frontend:</strong> React.js, Vite, Tailwind CSS, Framer Motion, Recharts.</li>
+            <li><strong>Backend:</strong> Node.js, Express.js.</li>
+            <li><strong>Database:</strong> SQLite managed by Drizzle ORM for type-safe schema queries.</li>
+        </ul>
+
+        <h2>5. Database Layer & Schema Abstractions (schema.js)</h2>
+        <p>The database layer standardizes local data storage, handling schema definitions for Users, Vehicles, Assets, Inventory, Procurement, and Maintenance Jobs.</p>
+        <div class="code-block">
+export const vehicles = sqliteTable('vehicles', {
+    id: text('id').primaryKey(),
+    registrationNumber: text('registration_number').notNull(),
+    make: text('make').notNull(),
+    status: text('status').default('Active')
+});
+        </div>
+    </div>
+
+    <!-- Section 6: The Core Developer Guide -->
+    <div class="page">
+        <h2>6. Application Modules & Developer Guide (Core Features)</h2>
+        <p>This section outlines the menus and functionalities created in the <strong>Smart workshop Asset & maintainance Management System</strong>. This guide allows future developers to understand the project structure and recreate or expand it effortlessly.</p>
+        
+        <h3>6.1 Authentication & Role-Based Access</h3>
+        <p>The system is secured by JWT-based login mechanisms. User authorization is managed through Role-Based Access Control (RBAC). The supported roles are <strong>Admin, Workshop Commander, Supervisor, Technician, Store Keeper, and Viewer</strong>. Menus are dynamically rendered based on the logged-in user's role.</p>
+
+        <h3>6.2 Dashboard</h3>
+        <p>The centralized monitoring hub. It fetches aggregated data from the backend to display visual KPIs (Total Assets, Pending Repairs, Low Stock Items) and incorporates dynamic Recharts graphs to track departmental efficiency.</p>
+
+        <h3>6.3 Assets & Vehicles</h3>
+        <p>A full CRUD (Create, Read, Update, Delete) registry table mapping to the `vehicles` and `assets` database tables. Users can filter by Department, view vehicle statuses, and export the registry to PDF or Excel formats.</p>
+
+        <h3>6.4 Workflow (Kanban Board)</h3>
+        <p>A drag-and-drop HTML5 Kanban Board that visualizes the Engine Repair Group's progress. Technicians move maintenance jobs across columns: <strong>Pending -> In Progress -> QA -> Completed</strong>, which automatically triggers API updates to the SQLite database.</p>
+    </div>
+
+    <div class="page">
+        <h3>6.5 Inventory & Procurement</h3>
+        <p><strong>Inventory:</strong> Real-time tracking of spare parts (Filters, Tires, Lubricants). Features a conditional rendering system that automatically flags items as "Low Stock" when quantities drop below predefined thresholds.<br>
+        <strong>Procurement:</strong> Interfaces directly with Inventory, allowing Store Keepers to quickly generate Purchase Orders (POs) for depleted parts.</p>
+
+        <h3>6.6 Maintenance</h3>
+        <p>Lists all scheduled and historical maintenance tasks. Provides detailed views into specific vehicle repairs, associated costs, and assigned technicians.</p>
+
+        <h3>6.7 Reports & Analytics</h3>
+        <p>Comprehensive tabular reports aggregating data from Maintenance, Procurement, and Inventory. <strong>Analytics</strong> visually represents this data through trend lines and area charts, identifying recurring issues in specific assets.</p>
+
+        <h3>6.8 AI Insights</h3>
+        <p>A natural language interface integration via `aiService.js`. Instead of using SQL, commanders can type <em>"Show me pending tasks for Tatra trucks"</em> and receive a database-driven response instantly.</p>
+
+        <h3>6.9 Employees & Settings</h3>
+        <p>The <strong>Employees</strong> module allows Admins to add new personnel, assign their departments, and define system roles. <strong>Settings</strong> manages global preferences, including toggling the "Army Palette" UI theme.</p>
+    </div>
+
+    <!-- Sections 7-9 -->
+    <div class="page">
+        <h2>7. Implementation & Deployment Guide</h2>
+        <p>To deploy the system:</p>
+        <ol>
+            <li>Initialize the SQLite database using <code>npm run seed</code> in the backend.</li>
+            <li>Start the Express daemon via <code>npm run dev</code> on port 5000.</li>
+            <li>Launch the Vite React server on port 5173.</li>
+            <li>Access the interface locally at <code>http://localhost:5173</code>.</li>
+        </ol>
+
+        <h2>8. Future Scope & Edge Hardware Additions</h2>
+        <p>Future expansions involve deploying Raspberry Pi edge clusters directly onto workshop engine testbeds to extract real-time MQTT acoustic emission data, feeding live IoT data directly into the Assets registry.</p>
+
+        <h2>9. Summary & Conclusion</h2>
+        <p>By migrating from traditional paper-based maintenance to a data-driven Predictive Maintenance paradigm, the 510 Army Base Workshop can minimize unscheduled breakdown downtime. The MERN-stack blueprint provides a robust foundation for scaling military logistics.</p>
+    </div>
+
+</body>
+</html>

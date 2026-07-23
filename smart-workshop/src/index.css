@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #556B2F; /* DarkOliveGreen */
+  --color-olive: #3E4A27;
+  --color-khaki: #BDB76B; /* DarkKhaki */
+  --color-khaki-light: #F0E68C; /* Khaki */
+  --color-gray-light: #EBECE8; /* Muddy Gray-White */
+  --color-border: #8B8D7A;
+  --color-danger: #8B0000; /* DarkRed */
+  --color-success: #228B22; /* ForestGreen */
+  --color-warning: #DAA520; /* GoldenRod */
+  --color-info: #4682B4; /* SteelBlue */
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: #F2F3EC; /* Subtle olive/khaki tint instead of pure white */
+    color: #2F3325; /* Dark military gray/green text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-olive);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-olive);
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-olive);
+  }
+}
+

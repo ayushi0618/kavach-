@@ -1,0 +1,2 @@
+import PageTransition from '../../../components/animations/PageTransition';
+export default function PurchaseRequestsPage() { return <PageTransition><div className="p-8 text-center text-gray-500 font-bold">Purchase Requests Module</div></PageTransition>; }

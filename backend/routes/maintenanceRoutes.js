@@ -1,0 +1,11 @@
+import express from 'express';
+import { requireAuth } from '../middleware/authMiddleware.js';
+import * as ctrl from '../controllers/maintenanceController.js';
+const router = express.Router();
+router.use(requireAuth);
+router.get('/', ctrl.getAll);
+router.get('/:id', ctrl.getById);
+router.post('/', ctrl.add);
+router.put('/:id', ctrl.update);
+router.delete('/:id', ctrl.remove);
+export default router;
