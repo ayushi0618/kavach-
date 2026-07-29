@@ -4,7 +4,9 @@ import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import UserProfileModal from '../common/UserProfileModal';
 
-export default function TopNavbar() {
+import { Menu } from 'lucide-react';
+
+export default function TopNavbar({ onToggleMobileSidebar }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [time, setTime] = useState(new Date());
@@ -96,20 +98,28 @@ export default function TopNavbar() {
   };
 
   return (
-    <header className="h-16 glass-header flex items-center justify-between px-6 sticky top-0 z-10 shadow-sm">
-      {/* Left side: Search */}
-      <div className="flex-1 flex items-center">
-        <form onSubmit={handleSearchSubmit} className="relative w-64 md:w-80" ref={searchRef}>
-          <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-            <Search size={18} />
+    <header className="h-16 glass-header flex items-center justify-between px-3 md:px-6 sticky top-0 z-10 shadow-sm">
+      {/* Left side: Mobile Toggle & Search */}
+      <div className="flex-1 flex items-center gap-2">
+        <button
+          onClick={onToggleMobileSidebar}
+          className="md:hidden p-2 text-olive hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Open Navigation Sidebar"
+        >
+          <Menu size={22} />
+        </button>
+
+        <form onSubmit={handleSearchSubmit} className="relative w-36 sm:w-64 md:w-80" ref={searchRef}>
+          <span className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-gray-400">
+            <Search size={16} />
           </span>
           <input 
             type="text" 
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
             onFocus={() => setShowSearchResults(true)}
-            placeholder="Search workshop assets, jobs, staff..." 
-            className="w-full pl-10 pr-4 py-2 border border-border rounded text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-gray-50/50"
+            placeholder="Search..." 
+            className="w-full pl-8 sm:pl-10 pr-2 sm:pr-4 py-1.5 border border-border rounded text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-gray-50/50"
           />
 
           {showSearchResults && searchQuery && (

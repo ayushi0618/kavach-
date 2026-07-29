@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/layout/Sidebar';
 import TopNavbar from '../components/layout/TopNavbar';
@@ -30,12 +31,19 @@ const adminNavItems = [
 ];
 
 export default function AdminLayout() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <div className="flex h-screen bg-gray-light font-sans text-gray-800 overflow-hidden">
-      <Sidebar navItems={adminNavItems} roleTitle="Admin Panel" />
-      <div className="flex-1 flex flex-col h-screen overflow-hidden">
-        <TopNavbar />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-light p-6 relative">
+      <Sidebar 
+        navItems={adminNavItems} 
+        roleTitle="Admin Panel" 
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
+      />
+      <div className="flex-1 flex flex-col h-screen overflow-hidden w-full">
+        <TopNavbar onToggleMobileSidebar={() => setMobileOpen(!mobileOpen)} />
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-light p-3 sm:p-6 relative">
           <Outlet />
         </main>
       </div>
