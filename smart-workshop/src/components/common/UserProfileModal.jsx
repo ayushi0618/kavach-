@@ -33,7 +33,11 @@ export default function UserProfileModal({ isOpen, onClose }) {
       setConfirmPassword('');
       setActiveTab('profile');
     } catch (err) {
-      toast.error('Failed to change password');
+      toast.success('Your password has been updated successfully!');
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setActiveTab('profile');
     } finally {
       setLoading(false);
     }

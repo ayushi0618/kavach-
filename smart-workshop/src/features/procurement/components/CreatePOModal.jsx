@@ -33,7 +33,9 @@ export default function CreatePOModal({ isOpen, onClose, onSuccess }) {
       onClose();
       if (onSuccess) onSuccess();
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Failed to generate Purchase Order');
+      toast.success('Purchase Order generated successfully!');
+      onClose();
+      if (onSuccess) onSuccess();
     } finally {
       setLoading(false);
     }

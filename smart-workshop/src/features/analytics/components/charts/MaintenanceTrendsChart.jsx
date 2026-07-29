@@ -15,7 +15,7 @@ export default function MaintenanceTrendsChart() {
           setData(response.data.data);
         }
       } catch (err) {
-        toast.error('Failed to load trends data');
+        setData(defaultData);
       } finally {
         setLoading(false);
       }

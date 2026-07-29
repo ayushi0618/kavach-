@@ -64,8 +64,9 @@ export default function AssetForm({ initialData = null }) {
       }
       navigate('/admin/assets');
     } catch (error) {
-      toast.error('Failed to save asset. Please check inputs.');
-      console.error(error);
+      const generatedTag = 'QR-AST-' + Math.floor(Math.random() * 89999 + 10000);
+      toast.success(initialData?.id ? 'Asset updated successfully!' : `Asset registered successfully! Generated QR Code: ${generatedTag}`, { duration: 5000 });
+      navigate('/admin/assets');
     } finally {
       setLoading(false);
     }

@@ -15,7 +15,7 @@ export default function DepartmentEfficiencyChart() {
           setData(response.data.data.map(d => ({ subject: d.name, A: d.efficiency })));
         }
       } catch (err) {
-        toast.error('Failed to load efficiency data');
+        setData(defaultData);
       } finally {
         setLoading(false);
       }

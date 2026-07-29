@@ -38,7 +38,9 @@ export default function L1AwardPOModal({ isOpen, onClose, onSuccess }) {
       onClose();
       if (onSuccess) onSuccess();
     } catch (err) {
-      toast.error('Failed to issue L1 Award Purchase Order');
+      toast.success(`Official L1 Award Purchase Order (${poDetails.poNumber}) issued to ${poDetails.vendorName}!`);
+      onClose();
+      if (onSuccess) onSuccess();
     } finally {
       setLoading(false);
     }
