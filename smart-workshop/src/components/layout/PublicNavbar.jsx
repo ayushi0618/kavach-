@@ -13,9 +13,9 @@ export default function PublicNavbar() {
       className="h-20 bg-white border-b border-border flex items-center justify-between px-6 md:px-12 fixed top-0 w-full z-50 shadow-sm"
     >
       <div className="flex items-center gap-3">
-        <img src="/kavach-logo.png" alt="Kavach Logo" className="w-10 h-10 object-contain shrink-0" />
+        <img src="/trishul-logo.png" alt="Trishul Logo" className="w-10 h-10 object-contain shrink-0" />
         <div className="flex flex-col">
-          <span className="font-extrabold text-olive text-xl leading-tight tracking-wider">KAVACH</span>
+          <span className="font-extrabold text-olive text-xl leading-tight tracking-wider">TRISHUL</span>
           <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">510 Army Base Workshop (EME)</span>
         </div>
       </div>

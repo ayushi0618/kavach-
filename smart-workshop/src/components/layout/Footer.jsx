@@ -4,12 +4,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded bg-white flex items-center justify-center text-primary font-bold text-xl">
-              SW
-            </div>
+            <img src="/trishul-logo.png" alt="Trishul Logo" className="w-10 h-10 object-contain shrink-0" />
             <div className="flex flex-col">
-              <span className="font-bold text-white text-lg leading-tight">510 ABW</span>
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Meerut</span>
+              <span className="font-extrabold text-white text-lg leading-tight tracking-wider">TRISHUL</span>
+              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">510 ABW MEERUT</span>
             </div>
           </div>
           <p className="text-sm text-gray-400 leading-relaxed">

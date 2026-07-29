@@ -1,30 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, Download, Plus, Edit, Eye } from 'lucide-react';
-import api from '../../../utils/api';
 import { useNavigate } from 'react-router-dom';
+import { kavachSync } from '../../../utils/kavachSync';
 import toast from 'react-hot-toast';
 
 export default function InventoryTable() {
   const navigate = useNavigate();
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState(() => kavachSync.getInventoryItems());
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchInventory();
-  }, []);
+    const syncInventory = () => {
+      setItems(kavachSync.getInventoryItems());
+    };
 
-  const fetchInventory = async () => {
-    try {
-      setLoading(true);
-      const { data } = await api.get('/inventory');
-      if (data && data.inventory) setItems(data.inventory);
-    } catch (err) {
-      toast.error('Failed to load inventory');
-    } finally {
-      setLoading(false);
-    }
-  };
+    syncInventory();
+    const unsubscribe = kavachSync.subscribe(syncInventory);
+    const interval = setInterval(syncInventory, 1000);
+
+    return () => {
+      unsubscribe();
+      clearInterval(interval);
+    };
+  }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');

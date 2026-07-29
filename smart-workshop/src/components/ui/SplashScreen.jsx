@@ -9,7 +9,7 @@ export default function SplashScreen() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="flex flex-col items-center"
       >
-        <img src="/kavach-logo.png" alt="Kavach Logo" className="w-24 h-24 object-contain drop-shadow-xl mb-4" />
+        <img src="/trishul-logo.png" alt="Trishul Logo" className="w-24 h-24 object-contain drop-shadow-xl mb-4" />
         
         <motion.h1 
           initial={{ y: 10, opacity: 0 }}
@@ -17,7 +17,7 @@ export default function SplashScreen() {
           transition={{ delay: 0.2 }}
           className="text-2xl font-black text-olive mb-1 tracking-wider text-center"
         >
-          Kavach - Asset and Maintenance Management System
+          Trishul - Asset and Maintenance Management System
         </motion.h1>
         
         <motion.p 

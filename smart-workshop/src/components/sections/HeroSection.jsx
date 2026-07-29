@@ -23,8 +23,8 @@ export default function HeroSection() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          src="/kavach-logo.png" 
-          alt="Kavach EME Emblem" 
+          src="/trishul-logo.png" 
+          alt="Trishul EME Emblem" 
           className="w-24 h-24 object-contain mx-auto mb-4 drop-shadow-2xl" 
         />
 
@@ -34,7 +34,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-3xl md:text-5xl font-black text-white tracking-wider leading-tight mb-4"
         >
-          Kavach - Asset and Maintenance Management System
+          Trishul - Asset and Maintenance Management System
         </motion.h1>
 
         <motion.h2 

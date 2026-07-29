@@ -33,6 +33,19 @@ export default function Settings() {
     auditLogging: true,
   });
 
+  const handleToggleDarkMode = (enabled) => {
+    setDarkMode(enabled);
+    if (enabled) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('trishul_theme', 'dark');
+      toast.success('🌙 Tactical Dark Mode Enabled!');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('trishul_theme', 'light');
+      toast.success('☀️ Day Operations Light Mode Enabled!');
+    }
+  };
+
   const handleSave = (e) => {
     e.preventDefault();
     setLoading(true);

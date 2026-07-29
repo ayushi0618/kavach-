@@ -93,16 +93,32 @@ export default function UserProfileModal({ isOpen, onClose }) {
                   <span className="font-bold text-gray-800">{user.email}</span>
                 </div>
                 <div className="flex justify-between">
+                  <span className="text-gray-500 font-bold">Service Rank:</span>
+                  <span className="font-bold text-olive">{user.rank || 'Personnel'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500 font-bold">Service Number:</span>
+                  <span className="font-bold font-mono text-gray-800">{user.serviceNo || 'EME-890214-A'}</span>
+                </div>
+                <div className="flex justify-between">
                   <span className="text-gray-500 font-bold">System Role:</span>
                   <span className="font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">{user.role}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500 font-bold">Assigned Department:</span>
-                  <span className="font-bold text-gray-800">{user.department || 'Vehicle Repair Group (WSG)'}</span>
+                  <span className="font-bold text-gray-800">{user.department || user.dept || 'Vehicle Repair Group (WSG)'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500 font-bold">Specialization / Rank:</span>
-                  <span className="font-bold text-gray-800">{user.specialization || 'EME Technical Officer'}</span>
+                  <span className="text-gray-500 font-bold">Specialization:</span>
+                  <span className="font-bold text-gray-800">{user.specialization || 'EME Technical Specialist'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500 font-bold">Security Clearance:</span>
+                  <span className="font-bold text-emerald-700">{user.clearance || 'Level 3 - Secret'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500 font-bold">Garrison Station:</span>
+                  <span className="font-bold text-gray-700">{user.garrison || 'Meerut Cantt'}</span>
                 </div>
               </div>
 

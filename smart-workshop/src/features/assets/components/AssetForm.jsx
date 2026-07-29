@@ -4,6 +4,7 @@ import { Save, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../../utils/api';
 import toast from 'react-hot-toast';
+import { OFFICIAL_DEPARTMENTS } from '../../../data/officialDepartments';
 
 export default function AssetForm({ initialData = null }) {
   const navigate = useNavigate();
@@ -117,11 +118,10 @@ export default function AssetForm({ initialData = null }) {
           <h3 className="text-sm font-bold text-gray-700 border-b border-border pb-2">Tracking & Maintenance</h3>
           <div>
             <label className="block text-xs font-bold text-gray-600 mb-1">Department Assigned *</label>
-            <select required name="department" value={formData.department || 'Vehicle Repair Group'} onChange={handleChange} className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:border-primary focus:outline-none">
-              <option>Vehicle Repair Group</option>
-              <option>Machine Shop</option>
-              <option>Electrical</option>
-              <option>Testing</option>
+            <select required name="department" value={formData.department || 'Vehicle Repair Group (WSG)'} onChange={handleChange} className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:border-primary focus:outline-none">
+              {OFFICIAL_DEPARTMENTS.map(d => (
+                <option key={d.code} value={d.name}>{d.shortName} - {d.name}</option>
+              ))}
             </select>
           </div>
           <div>

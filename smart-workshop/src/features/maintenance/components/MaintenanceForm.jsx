@@ -4,6 +4,7 @@ import { Save, X, Calendar, User, Wrench } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../../utils/api';
 import toast from 'react-hot-toast';
+import { OFFICIAL_DEPARTMENTS } from '../../../data/officialDepartments';
 
 export default function MaintenanceForm({ initialData = null }) {
   const navigate = useNavigate();
@@ -139,12 +140,9 @@ export default function MaintenanceForm({ initialData = null }) {
           <div>
             <label className="block text-xs font-bold text-gray-600 mb-1">Department *</label>
             <select required value={formData.department} onChange={e => setFormData({...formData, department: e.target.value})} className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:border-primary">
-              <option>Vehicle Repair Group (WSG)</option>
-              <option>Equipment Repair Group (ERG)</option>
-              <option>Armament Group</option>
-              <option>Machine Shop & Welding</option>
-              <option>Electrical & AC Group</option>
-              <option>QA / QC Inspection Wing</option>
+              {OFFICIAL_DEPARTMENTS.map(d => (
+                <option key={d.code} value={d.name}>{d.shortName} - {d.name}</option>
+              ))}
             </select>
           </div>
           <div>

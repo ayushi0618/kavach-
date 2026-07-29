@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { X, Save, Truck, ShieldCheck } from 'lucide-react';
 import api from '../../../utils/api';
 import toast from 'react-hot-toast';
+import { OFFICIAL_DEPARTMENTS } from '../../../data/officialDepartments';
 
 export default function RegisterVehicleModal({ isOpen, onClose, onSuccess }) {
   const [loading, setLoading] = useState(false);
@@ -112,10 +113,9 @@ export default function RegisterVehicleModal({ isOpen, onClose, onSuccess }) {
                 onChange={e => setFormData({ ...formData, department: e.target.value })}
                 className="w-full border border-border rounded p-2 bg-white focus:border-primary focus:outline-none"
               >
-                <option>Vehicle Repair Group (WSG)</option>
-                <option>Equipment Repair Group (ERG)</option>
-                <option>Armament Group</option>
-                <option>QA / QC Inspection Wing</option>
+                {OFFICIAL_DEPARTMENTS.map(d => (
+                  <option key={d.code} value={d.name}>{d.shortName} - {d.name}</option>
+                ))}
               </select>
             </div>
             <div>

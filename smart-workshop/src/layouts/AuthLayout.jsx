@@ -14,7 +14,7 @@ export default function AuthLayout() {
           transition={{ duration: 0.5 }}
           className="flex justify-center"
         >
-          <img src="/kavach-logo.png" alt="Kavach Logo" className="w-20 h-20 object-contain drop-shadow-md" />
+          <img src="/trishul-logo.png" alt="Trishul Logo" className="w-20 h-20 object-contain drop-shadow-md" />
         </motion.div>
         <motion.h2 
           initial={{ opacity: 0 }}
@@ -22,7 +22,7 @@ export default function AuthLayout() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mt-4 text-center text-3xl font-black text-olive tracking-wider uppercase"
         >
-          KAVACH
+          TRISHUL
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}

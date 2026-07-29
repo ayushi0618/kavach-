@@ -1,43 +1,79 @@
 import { useState } from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, PackageCheck } from 'lucide-react';
+import { kavachSync } from '../../../utils/kavachSync';
+import toast from 'react-hot-toast';
 
 export default function PartsUsedForm() {
-  const [parts, setParts] = useState([{ name: 'Oil Filter X2', qty: 1 }]);
+  const [partName, setPartName] = useState('');
+  const [qty, setQty] = useState(1);
+
+  const handleRequestPart = (e) => {
+    e.preventDefault();
+    if (!partName.trim()) {
+      toast.error('Please enter part name');
+      return;
+    }
+
+    const spareName = partName.trim();
+    kavachSync.requestSpare('JOB-8901', spareName, 'Sub. Maj. Rajesh Sharma');
+    toast.success(`Spare requisition for '${spareName}' submitted to Admin Inventory!`);
+    setPartName('');
+    setQty(1);
+  };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-border h-full flex flex-col">
-      <h3 className="text-lg font-bold text-olive mb-4">Parts Used Record</h3>
-      
-      <div className="space-y-3 mb-6">
-        <div>
-          <label className="block text-xs font-bold text-gray-600 mb-1">Part Name</label>
-          <input type="text" className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-primary" placeholder="e.g. Hydraulic Hose" />
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-border h-full flex flex-col justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <PackageCheck size={20} className="text-primary" />
+          <h3 className="text-lg font-bold text-olive">Spare Parts Requisition</h3>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        
+        <form onSubmit={handleRequestPart} className="space-y-3 mb-4">
           <div>
-            <label className="block text-xs font-bold text-gray-600 mb-1">Quantity</label>
-            <input type="number" className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-primary" placeholder="1" />
+            <label className="block text-xs font-bold text-gray-600 mb-1">Required Spare Part Name *</label>
+            <input 
+              type="text" 
+              value={partName}
+              onChange={(e) => setPartName(e.target.value)}
+              className="w-full border border-border rounded p-2 text-xs bg-gray-50 focus:outline-none focus:border-primary font-semibold" 
+              placeholder="e.g. Clutch Seal, Oil Filter..."
+              required
+            />
           </div>
-          <div>
-            <label className="block text-xs font-bold text-gray-600 mb-1">Location / Bin</label>
-            <input type="text" className="w-full border border-border rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-primary" placeholder="A1-42" />
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1">Quantity</label>
+              <input 
+                type="number" 
+                min="1" 
+                value={qty}
+                onChange={(e) => setQty(Number(e.target.value))}
+                className="w-full border border-border rounded p-2 text-xs bg-gray-50 focus:outline-none focus:border-primary font-bold" 
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-gray-600 mb-1">Priority</label>
+              <input 
+                type="text" 
+                disabled 
+                value="High" 
+                className="w-full border border-border rounded p-2 text-xs bg-gray-100 font-bold text-gray-600" 
+              />
+            </div>
           </div>
-        </div>
-        <button className="w-full bg-gray-light hover:bg-gray-200 text-olive border border-border font-bold py-2 rounded text-sm flex items-center justify-center gap-2 transition-colors">
-          <Plus size={16} /> Add Part to Record
-        </button>
+          <button 
+            type="submit"
+            className="w-full bg-primary hover:bg-olive text-white font-bold py-2.5 rounded text-xs flex items-center justify-center gap-2 transition-colors shadow-xs"
+          >
+            <Plus size={16} /> Request Spare Part from Admin
+          </button>
+        </form>
       </div>
 
-      <div className="flex-1 border-t border-border pt-4">
-        <h4 className="text-xs font-bold text-gray-500 mb-2 uppercase">Added Parts</h4>
-        <ul className="space-y-2">
-          {parts.map((p, i) => (
-            <li key={i} className="flex justify-between items-center text-sm p-2 bg-gray-50 rounded border border-gray-100">
-              <span className="font-semibold text-olive">{p.name}</span>
-              <span className="text-xs bg-gray-200 px-2 py-0.5 rounded-full font-bold">{p.qty}x</span>
-            </li>
-          ))}
-        </ul>
+      <div className="text-[11px] text-gray-400 pt-3 border-t border-border flex justify-between items-center">
+        <span>Target Job: #JOB-8901</span>
+        <span>Auto-syncs with Admin</span>
       </div>
     </div>
   );

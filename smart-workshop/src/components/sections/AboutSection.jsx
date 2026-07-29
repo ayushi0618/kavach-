@@ -11,12 +11,11 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="relative h-[500px] rounded-lg overflow-hidden bg-khaki-light flex items-center justify-center border border-border shadow-sm"
         >
-          {/* Placeholder for missing image */}
-          <div className="text-center p-8">
-            <span className="block text-4xl mb-4">📸</span>
-            <p className="text-olive font-medium">Workshop Front View</p>
-            <p className="text-sm text-gray-500 mt-2">Replace with uploaded image</p>
-          </div>
+          <img 
+            src="/images/workshop-front.png" 
+            alt="510 Army Base Workshop Front View" 
+            className="w-full h-full object-cover rounded-lg shadow-md" 
+          />
         </motion.div>
 
         <motion.div

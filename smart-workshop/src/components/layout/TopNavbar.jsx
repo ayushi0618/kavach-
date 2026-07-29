@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Search, Bell, LogOut, User, CheckCheck, AlertTriangle, Wrench, ShoppingBag, KeyRound } from 'lucide-react';
+import { Search, Bell, LogOut, User, CheckCheck, AlertTriangle, Wrench, ShoppingBag, KeyRound, Moon, Sun } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import UserProfileModal from '../common/UserProfileModal';
@@ -96,7 +96,7 @@ export default function TopNavbar() {
   };
 
   return (
-    <header className="h-16 bg-white border-b border-border flex items-center justify-between px-6 sticky top-0 z-10 shadow-sm">
+    <header className="h-16 glass-header flex items-center justify-between px-6 sticky top-0 z-10 shadow-sm">
       {/* Left side: Search */}
       <div className="flex-1 flex items-center">
         <form onSubmit={handleSearchSubmit} className="relative w-64 md:w-80" ref={searchRef}>
@@ -113,32 +113,10 @@ export default function TopNavbar() {
           />
 
           {showSearchResults && searchQuery && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-border rounded-lg shadow-xl overflow-hidden z-50 text-left">
-              <div className="p-2 bg-gray-50 border-b border-border text-[10px] font-bold text-gray-500 uppercase">
-                Search Results ({searchResults.length})
+            <div className="absolute left-0 right-0 mt-1 bg-white rounded-lg shadow-xl border border-border overflow-hidden z-50">
+              <div className="p-2 bg-gray-50 text-[10px] font-bold text-gray-500 uppercase border-b border-border">
+                Live Search Results
               </div>
-              {searchResults.length === 0 ? (
-                <div className="p-4 text-xs text-gray-400 text-center">No matching workshop records found</div>
-              ) : (
-                <div className="max-h-60 overflow-y-auto divide-y divide-border">
-                  {searchResults.map((item, idx) => (
-                    <div 
-                      key={idx}
-                      onClick={() => {
-                        setShowSearchResults(false);
-                        setSearchQuery('');
-                        navigate(item.link);
-                      }}
-                      className="p-2.5 hover:bg-gray-50 cursor-pointer flex justify-between items-center transition-colors"
-                    >
-                      <span className="text-xs font-bold text-gray-800">{item.title}</span>
-                      <span className="text-[9px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded">
-                        {item.type}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           )}
         </form>
@@ -237,8 +215,8 @@ export default function TopNavbar() {
         >
           <div className="flex flex-col items-end hidden sm:flex">
             <span className="text-sm font-semibold text-olive">{user?.fullName || user?.name || 'Personnel Profile'}</span>
-            <span className="text-xs bg-khaki-light text-olive px-2 py-0.5 rounded-full font-medium">
-              {user?.role || 'TECHNICIAN'}
+            <span className="text-xs bg-khaki-light text-olive px-2 py-0.5 rounded-full font-bold">
+              {user?.rank || user?.role || 'TECHNICIAN'}
             </span>
           </div>
           <div className="w-9 h-9 rounded-full bg-olive text-white font-bold flex items-center justify-center text-xs overflow-hidden shadow-xs">

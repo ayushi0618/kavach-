@@ -1,5 +1,36 @@
 import { motion } from 'framer-motion';
 
+const galleryItems = [
+  { 
+    id: 1, 
+    src: '/images/gallery/gallery-1.png', 
+    title: 'Heavy Overhaul & TATRA Vehicle Repair Bay', 
+    dept: 'Vehicle Repair Group (WSG)', 
+    span: 'md:col-span-2' 
+  },
+  { 
+    id: 2, 
+    src: '/images/gallery/gallery-2.png', 
+    title: 'Armament & Turret Hydraulics Inspection', 
+    dept: 'Armament Group', 
+    span: '' 
+  },
+  { 
+    id: 3, 
+    src: '/images/gallery/gallery-3.png', 
+    title: 'Electro-Optics & Sensors Calibration Lab', 
+    dept: 'Equipment Repair Group (ERG)', 
+    span: '' 
+  },
+  { 
+    id: 4, 
+    src: '/images/gallery/gallery-4.png', 
+    title: '510 Army Base Workshop Main Headquarters', 
+    dept: 'Command Complex', 
+    span: 'md:col-span-2' 
+  },
+];
+
 export default function GallerySection() {
   return (
     <section id="gallery" className="py-24 bg-gray-light">
@@ -13,20 +44,32 @@ export default function GallerySection() {
           >
             Workshop Gallery
           </motion.h2>
-          <p className="text-gray-600">Glimpses of our state-of-the-art facilities.</p>
+          <p className="text-gray-600">Glimpses of our state-of-the-art facilities and repair bays.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {galleryItems.map((item, idx) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative overflow-hidden rounded-lg bg-khaki-light aspect-video flex items-center justify-center border border-border group ${i === 1 || i === 4 ? 'md:col-span-2' : ''}`}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className={`relative overflow-hidden rounded-xl h-72 border border-border shadow-sm group ${item.span}`}
             >
-              <span className="text-2xl opacity-50 group-hover:scale-110 transition-transform">📸 Image {i}</span>
+              <img 
+                src={item.src} 
+                alt={item.title} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-khaki-light bg-olive/80 px-2.5 py-1 rounded w-fit mb-1 border border-khaki/30">
+                  {item.dept}
+                </span>
+                <h3 className="text-base font-bold text-white leading-tight">
+                  {item.title}
+                </h3>
+              </div>
             </motion.div>
           ))}
         </div>

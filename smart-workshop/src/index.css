@@ -1,50 +1,83 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #556B2F; /* DarkOliveGreen */
-  --color-olive: #3E4A27;
-  --color-khaki: #BDB76B; /* DarkKhaki */
-  --color-khaki-light: #F0E68C; /* Khaki */
-  --color-gray-light: #EBECE8; /* Muddy Gray-White */
-  --color-border: #8B8D7A;
-  --color-danger: #8B0000; /* DarkRed */
-  --color-success: #228B22; /* ForestGreen */
-  --color-warning: #DAA520; /* GoldenRod */
-  --color-info: #4682B4; /* SteelBlue */
+  --color-primary: #2E3B1F; /* Deep Army Drab Green */
+  --color-olive: #1A2410;   /* Midnight Command Olive */
+  --color-olive-dark: #121A0B;
+  --color-khaki: #9E965D;   /* Tactical Military Khaki */
+  --color-khaki-light: #DDD5A4;
+  --color-gray-light: #ECEFE8;
+  --color-border: #BEC5B3;
+  --color-danger: #7A0A0A;  /* Dark Military Red */
+  --color-success: #125420; /* Dark Tactical Green */
+  --color-warning: #B57F00;
+  --color-info: #2B5780;
 
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
   :root {
     font-family: 'Inter', system-ui, sans-serif;
   }
 
   body {
-    background-color: #F2F3EC; /* Subtle olive/khaki tint instead of pure white */
-    color: #2F3325; /* Dark military gray/green text */
+    background: linear-gradient(135deg, #E6EADF 0%, #D8DEC8 50%, #C4CCA8 100%);
+    background-attachment: fixed;
+    color: #1A2410;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-olive);
-  }
+/* 💎 Glassmorphism UI Utilities with Dark Army Sheen */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(26, 36, 16, 0.08), 0 4px 12px 0 rgba(26, 36, 16, 0.04);
+}
 
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-olive);
-  }
+.glass-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 24px -4px rgba(26, 36, 16, 0.08);
+}
 
-  h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-olive);
-  }
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 32px -4px rgba(26, 36, 16, 0.16);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(190, 197, 179, 0.8);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #2E3B1F;
 }
 

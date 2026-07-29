@@ -13,7 +13,13 @@ export default function DashboardHeader() {
     >
       <div>
         <h1 className="text-2xl font-bold text-olive">Command Center</h1>
-        <p className="text-gray-500">Welcome back, {user?.name || 'Administrator'}!</p>
+        <p className="text-gray-500 text-sm mt-0.5">
+          Welcome back, <strong className="text-olive">{user?.fullName || user?.name || 'Administrator'}</strong>
+          <span className="ml-2 text-xs bg-khaki-light text-olive px-2 py-0.5 rounded font-bold">
+            {user?.rank || user?.role || 'ADMIN'}
+          </span>
+          <span className="ml-2 text-xs text-gray-400">• {user?.department || 'Command Office (510 ABW)'}</span>
+        </p>
       </div>
       <div className="flex items-center gap-6 mt-4 md:mt-0 text-sm font-medium text-gray-600">
         <div className="flex items-center gap-2 bg-gray-light px-4 py-2 rounded-full border border-border">

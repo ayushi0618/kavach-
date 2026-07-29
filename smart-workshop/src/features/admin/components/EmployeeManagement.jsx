@@ -3,16 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Plus, Edit, Trash2, Shield, Wrench, X, Save, AlertTriangle } from 'lucide-react';
 import api from '../../../utils/api';
 import toast from 'react-hot-toast';
+import { OFFICIAL_DEPARTMENTS } from '../../../data/officialDepartments';
 
-const defaultEMEDepartments = [
-  { id: '1', name: 'Vehicle Repair Group (WSG)' },
-  { id: '2', name: 'Equipment Repair Group (ERG)' },
-  { id: '3', name: 'Armament Group' },
-  { id: '4', name: 'Machine Shop & Welding' },
-  { id: '5', name: 'Electrical & AC Group' },
-  { id: '6', name: 'QA / QC Inspection Wing' },
-  { id: '7', name: 'Inventory & Store Depot' }
-];
+const defaultEMEDepartments = OFFICIAL_DEPARTMENTS.map(d => ({
+  id: d.code,
+  name: d.name
+}));
 
 export default function EmployeeManagement() {
   const [employees, setEmployees] = useState([]);

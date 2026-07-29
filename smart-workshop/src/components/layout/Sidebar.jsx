@@ -12,7 +12,7 @@ export default function Sidebar({ navItems, roleTitle }) {
       initial={{ width: 256 }}
       animate={{ width: collapsed ? 80 : 256 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="h-screen bg-white border-r border-border flex flex-col z-20 sticky top-0 shrink-0 shadow-sm"
+      className="h-screen glass-sidebar flex flex-col z-20 sticky top-0 shrink-0 shadow-sm"
     >
       {/* Header */}
       <div className="h-16 flex items-center justify-between px-4 border-b border-border">
@@ -24,9 +24,9 @@ export default function Sidebar({ navItems, roleTitle }) {
               exit={{ opacity: 0 }}
               className="flex items-center gap-2 overflow-hidden whitespace-nowrap"
             >
-              <img src="/kavach-logo.png" alt="Kavach Logo" className="w-8 h-8 object-contain shrink-0" />
+              <img src="/trishul-logo.png" alt="Trishul Logo" className="w-8 h-8 object-contain shrink-0" />
               <div className="flex flex-col leading-tight">
-                <span className="font-extrabold text-olive text-lg tracking-wider">KAVACH</span>
+                <span className="font-extrabold text-olive text-lg tracking-wider">TRISHUL</span>
                 <span className="text-[9px] font-bold text-gray-400 tracking-tight">510 ABW EME COMMAND</span>
               </div>
             </motion.div>

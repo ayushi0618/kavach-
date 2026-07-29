@@ -49,7 +49,6 @@ export function AuthProvider({ children }) {
         return sessionUser;
       }
     } catch (err) {
-      toast.error(err.response?.data?.error || 'Invalid email or password');
       throw err;
     }
   };
