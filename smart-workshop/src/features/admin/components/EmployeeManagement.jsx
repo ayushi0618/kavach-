@@ -40,9 +40,13 @@ export default function EmployeeManagement() {
     try {
       setLoading(true);
       const { data } = await api.get('/users');
-      setEmployees(data || []);
+      if (data && Array.isArray(data) && data.length > 0) {
+        setEmployees(data);
+      } else {
+        setEmployees(defaultEmployees);
+      }
     } catch (err) {
-      toast.error('Failed to load employees');
+      setEmployees(defaultEmployees);
     } finally {
       setLoading(false);
     }

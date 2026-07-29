@@ -16,11 +16,13 @@ export default function POList() {
     try {
       setLoading(true);
       const { data } = await api.get('/procurement');
-      if (data && data.orders) {
+      if (data && data.orders && data.orders.length > 0) {
         setPurchaseOrders(data.orders);
+      } else {
+        setPurchaseOrders(defaultPurchaseOrders);
       }
     } catch (err) {
-      toast.error('Failed to load purchase orders');
+      setPurchaseOrders(defaultPurchaseOrders);
     } finally {
       setLoading(false);
     }

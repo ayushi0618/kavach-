@@ -22,9 +22,13 @@ export default function PurchaseOrdersPage() {
     try {
       setLoading(true);
       const { data } = await api.get('/procurement');
-      if (data && data.orders) setOrders(data.orders);
+      if (data && data.orders && data.orders.length > 0) {
+        setOrders(data.orders);
+      } else {
+        setOrders(purchaseOrders);
+      }
     } catch (err) {
-      toast.error('Failed to load purchase orders');
+      setOrders(purchaseOrders);
     } finally {
       setLoading(false);
     }

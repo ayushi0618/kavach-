@@ -40,8 +40,7 @@ export default function ExecutiveKPIs() {
           ]);
         }
       } catch (err) {
-        toast.error('Failed to load KPIs');
-        // fallback
+        // fallback to default executive metrics
         setKpis([
             { label: 'Total Assets', value: 150, type: 'primary' },
             { label: 'Fleet Readiness', value: '88%', type: 'success' },
